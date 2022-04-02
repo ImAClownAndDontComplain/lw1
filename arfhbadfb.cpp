@@ -6,9 +6,11 @@
 void RenderSceneGB() {
     glClearColor(0.5f, 0.5f, 0.5f, 0.0f);
     glClear(GL_COLOR_BUFFER_BIT);
+    glDrawArrays(GL_POINTS, 0, 1);
     glutSwapBuffers();
 }
 
+    GLuint VBO;
 int main(int argc, char **argv)
 {
     glutInit(&argc, argv);
@@ -18,9 +20,6 @@ int main(int argc, char **argv)
     glutInitWindowPosition(100, 100);
     glutCreateWindow("IDKWTD");
 
-    glutDisplayFunc(RenderSceneGB);
-
-    glutMainLoop();
 
     GLenum res = glewInit();
     if (res != GLEW_OK) {
@@ -31,7 +30,6 @@ int main(int argc, char **argv)
     glm::vec3 Vertices[1];
     Vertices[0] = glm::vec3(0.0f, 0.0f, 0.0f);
     
-    GLuint VBO;
     glGenBuffers(1, &VBO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices), Vertices, GL_STATIC_DRAW);
@@ -40,6 +38,8 @@ int main(int argc, char **argv)
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
 
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
-    glDrawArrays(GL_POINTS, 0, 1);
 
+    glutDisplayFunc(RenderSceneGB);
+
+    glutMainLoop();
 }
