@@ -83,7 +83,7 @@ Explanations for the code:
   Creating an array of vertices for a triangle with points (the triangle is located in the lower part of the window, the first point is exactly in the center, the second is higher).
 
   8.	Functions responsible for drawing in the window:
-  After the window into which the graphic information will be displayed has been prepared and created, it is necessary to associate procedures with it that will be responsible for displaying graphic information, monitor the window size, monitor keystrokes, etc.
+  	After the window into which the graphic information will be displayed has been prepared and created, it is necessary to associate procedures with it that will be responsible for displaying graphic information, monitor the window size, monitor keystrokes, etc.
   
     a)	glGenBuffers(1, &VBO);
     The glGen* functions are needed to generate objects of variable types. The first parameter specifies the number of objects we want to create, and the second is a reference to an array of type GLuints to store the pointer to which the data will be stored (in this case, one object is created - the vertex buffer).
