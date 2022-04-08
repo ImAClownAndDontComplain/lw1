@@ -36,14 +36,17 @@ Explanations for the code:
     The function asks GLUT to swap the background buffer and frame buffer. The next call will render to the current framebuffer and the backgroundbuffer will be rendered.
 
   3.	GLuintVBO;
+  
    VBO is a buffer used to store vertices.
    GLuint is a global variable for storing a pointer to the vertex buffer. (almost all OpenGL objects are accessible through a variable of type GLuint.)
 
   4.	glutInit(&argc, argv);
+  
   GLUT initialization:
   The first parameter is a pointer to the number of arguments on the command line, and the second is a pointer to an array of arguments. The values are taken from the main function of the program: int main(int argc, char **argv).
 
-  5.	Setting window parameters and creating it:
+  5.	Setting window parameters and creating the window:
+  
     a)	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
     Sets the display mode for the window (such as the color model used, the number of different buffers, etc.).
       •	GLUT_DOUBLE
@@ -76,10 +79,12 @@ Explanations for the code:
       {0.0f, 0.0f, 0.0f},  //center of the screen
       {0.0f, 0.2f, 0.0f}  // slightly above center
 };
+
   Creating an array of vertices for a triangle with points (the triangle is located in the lower part of the window, the first point is exactly in the center, the second is higher).
 
   8.	Functions responsible for drawing in the window:
   After the window into which the graphic information will be displayed has been prepared and created, it is necessary to associate procedures with it that will be responsible for displaying graphic information, monitor the window size, monitor keystrokes, etc.
+  
     a)	glGenBuffers(1, &VBO);
     The glGen* functions are needed to generate objects of variable types. The first parameter specifies the number of objects we want to create, and the second is a reference to an array of type GLuints to store the pointer to which the data will be stored (in this case, one object is created - the vertex buffer).
 
@@ -111,9 +116,11 @@ Explanations for the code:
 
 
   9.	glutDisplayFunc(RenderSceneCB);
+  
   The function that is responsible for drawing. Called by the operating system to draw (redraw) the contents of a window. The only parameter of this function is a pointer to the function that will be responsible for drawing in the window - RenderSceneCB, described above.
   
-  10.	Entering the main GLUT loop:
-  glutMainLoop();
+  10.	glutMainLoop();
+  
+  Entering the main GLUT loop.
   To run our program is to enter the so-called main GLUT loop. This cycle provides the relationship between the operating system and those functions that are responsible for the window, receive information from the input / output devices.
 
