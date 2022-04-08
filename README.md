@@ -4,6 +4,7 @@
 
 Explanations for the code:
   1.	Linked Libraries:
+    
     a)	#include <GL/glew.h>
     OpenGL Extension Wrangler Library (GLEW) - used to manage extensions in OpenGL. Once initialized, it queries all extensions available on the platform, loading them dynamically and providing easy access through a single header file.
 
